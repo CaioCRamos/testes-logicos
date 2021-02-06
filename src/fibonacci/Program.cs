@@ -11,7 +11,7 @@ namespace fibonacci
             //obtendo os 25 primeiros números da sequência de Fibonacci
             var numeros = ObterSequenciaFibonacci(25);
 
-            for(int idx = 0; idx < numeros.Count(); idx++)
+            for (int idx = 0; idx < numeros.Count(); idx++)
                 Console.WriteLine($"{idx}: {numeros.ElementAt(idx)}");
 
             //obtendo os 5 primeiros números da sequência de Fibonacci a partir do 20º número
@@ -19,7 +19,7 @@ namespace fibonacci
             var quantidade = 5;
             var numeros2 = ObterSequenciaFibonacci(posicaoInicial, quantidade);
 
-            for(int idx = 0; idx < numeros2.Count(); idx++)
+            for (int idx = 0; idx < numeros2.Count(); idx++)
                 Console.WriteLine($"{(idx + posicaoInicial)}: {numeros2.ElementAt(idx)}");
         }
 
@@ -43,11 +43,8 @@ namespace fibonacci
         }
 
         static IEnumerable<long> ObterSequenciaFibonacci(int posicaoInicial, int quantidade)
-        {
-            var numeros = ObterSequenciaFibonacci(posicaoInicial + quantidade);
-            return numeros
-                    .Skip(posicaoInicial)           
-                    .Take(quantidade);
-        }
+            => ObterSequenciaFibonacci(posicaoInicial + quantidade)
+                .Skip(posicaoInicial)
+                .Take(quantidade);
     }
 }
